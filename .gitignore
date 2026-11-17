@@ -1,0 +1,22 @@
+# The monitoring workbook is confidential and stays out of the repository
+data/
+*.xlsx
+*.xls
+
+# Only these files in output/ and reference/ are tracked
+output/*
+!output/results_by_rank.csv
+!output/results_summary.csv
+!output/fig_concentration_curve.png
+reference/*
+!reference/make_reference.py
+!reference/reference_by_rank_python.csv
+!reference/reference_summary_python.csv
+
+# R and renv
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+
+.DS_Store
