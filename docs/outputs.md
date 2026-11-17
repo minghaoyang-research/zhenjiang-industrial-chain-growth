@@ -18,10 +18,10 @@
 | `firms`, `firms_positive_2021` | firms in the data; those with 2021 sales above zero |
 | `chain_sales_2021_100m`, `chain_sales_2022_100m`, `chain_growth_pct` | chain sales and growth |
 | `n_down`, `n_up`, `n_flat` | firms whose sales fell, rose or did not change |
-| `median_firm_growth_pct` | median of the firms' growth rates |
+| `median_firm_growth_pct` | median growth of the firms with 2021 sales above zero (%) |
 | `gross_gains_100m`, `gross_losses_100m` | total increase of the firms that grew; total fall of those that shrank (negative) |
 | `hhi_2021`, `hhi_2022` | Herfindahl index of firm shares of chain sales, on a 0 to 1 scale |
-| `cr3_2021_pct`, `top3_2021_fixed_share_2022_pct`, `cr3_2022_reranked_pct` | share of the three largest firms, measured two ways (see [below](#further-definitions)) |
+| `cr3_2021_pct`, `top3_2021_fixed_share_2022_pct`, `cr3_2022_reranked_pct` | share of the three largest firms in 2021, and their share in 2022 measured two ways (see [below](#further-definitions)) |
 | `curve_peak_pct`, `curve_peak_rank` | highest point of the cumulative curve and the rank at which it is reached |
 | `rest_after_50_base_share_pct`, `rest_after_50_growth_pct` | the 204 firms outside the largest 50: their 2021 share and their growth as a group |
 | `top3_growth_pct` | growth of the three largest firms by 2021 sales, as a group (%) |
