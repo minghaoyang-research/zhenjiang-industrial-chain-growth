@@ -21,7 +21,7 @@
 | `median_firm_growth_pct` | median growth of the firms with 2021 sales above zero (%) |
 | `gross_gains_100m`, `gross_losses_100m` | total increase of the firms that grew; total fall of those that shrank (negative) |
 | `hhi_2021`, `hhi_2022` | Herfindahl index of firm shares of chain sales, on a 0 to 1 scale |
-| `cr3_2021_pct`, `top3_2021_fixed_share_2022_pct`, `cr3_2022_reranked_pct` | share of the three largest firms in 2021, and their share in 2022 measured two ways (see [below](#further-definitions)) |
+| `cr3_2021_pct`, `top3_2021_fixed_share_2022_pct`, `cr3_2022_reranked_pct` | share of chain sales in 2021 held by the three largest firms of 2021; the same three firms' share in 2022; share in 2022 held by the three largest firms ranked on 2022 sales (see [below](#further-definitions)) |
 | `curve_peak_pct`, `curve_peak_rank` | highest point of the cumulative curve and the rank at which it is reached |
 | `rest_after_50_base_share_pct`, `rest_after_50_growth_pct` | the 204 firms outside the largest 50: their 2021 share and their growth as a group |
 | `top3_growth_pct` | growth of the three largest firms by 2021 sales, as a group (%) |
@@ -33,7 +33,7 @@
 | `rest_after_50_share_declining_pct` | share of the firms ranked 51st to 254th whose sales fell (%) |
 | `city_sales_2021_100m`, `city_sales_2022_100m`, `city_growth_pct` | all industrial firms above designated size in the city |
 
-`output/fig_concentration_curve.png` is the figure shown at the top of the [README](../README.md). The curve plots the cumulative share of the 2022 net increase against the cumulative share of 2021 sales, adding firms from the largest down. The dashed line is where the curve would lie if every firm had grown at the chain's rate of 33.0%.
+`output/fig_concentration_curve.png` is the figure shown in the [README](../README.md). The curve plots the cumulative share of the 2022 net increase against the cumulative share of 2021 sales, adding firms from the largest down. The dashed line is where the curve would lie if every firm had grown at the chain's rate of 33.0%.
 
 ## Further definitions
 
