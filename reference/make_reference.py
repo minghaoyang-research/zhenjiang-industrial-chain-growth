@@ -15,8 +15,10 @@ from statistics import median
 from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parent.parent
-path = sys.argv[1] if len(sys.argv) > 1 else next((ROOT / "data").glob("*.xlsx"))
-wb = load_workbook(path, read_only=True, data_only=True)
+paths = sys.argv[1:2] or list((ROOT / "data").glob("*.xlsx"))
+if len(paths) != 1:
+    sys.exit("Put the workbook in data/ as the only .xlsx file, or pass its path as an argument.")
+wb = load_workbook(paths[0], read_only=True, data_only=True)
 
 # Sheet 2, one row per firm: column 2 is the name, 4 is 2022 taxable sales and
 # 5 is the same period of 2021, in 10,000 yuan.

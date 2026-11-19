@@ -12,7 +12,8 @@ library(ggplot2)
 invisible(Sys.setlocale("LC_CTYPE", "en_US.UTF-8"))  # file names and sheet labels are in Chinese
 
 path <- commandArgs(trailingOnly = TRUE)[1]
-if (is.na(path)) path <- list.files("data", "\\.xlsx$", full.names = TRUE)[1]
+if (is.na(path)) path <- list.files("data", "\\.xlsx$", full.names = TRUE)
+if (length(path) != 1) stop("Put the workbook in data/ as the only .xlsx file, or pass its path as an argument.")
 dir.create("output", showWarnings = FALSE)
 
 # ---- Firms (sheet 2) -------------------------------------------------------------
@@ -62,7 +63,7 @@ by_rank <- do.call(rbind, lapply(c(1, 2, 3, 5, 10, 20, 50), function(k) {
 }))
 
 hhi <- function(x) sum((x / sum(x))^2)
-# median growth over the firms ranked k with a positive 2021 base; share of them that shrank
+# median growth over the firms ranked k with a positive 2021 base; share of all firms ranked k whose sales fell
 tier_median    <- function(k) { k <- k[r$s21[k] > 0]; median((r$s22[k] / r$s21[k] - 1) * 100) }
 tier_declining <- function(k) mean(r$s22[k] < r$s21[k]) * 100
 gains_4_50 <- r$inc[4:50]
