@@ -8,7 +8,7 @@ I ranked the firms by their 2021 sales rather than their 2022 sales, so that a f
 
 Concentrated sales growth does not by itself mean that Zhenjiang gained little. Studies of global production networks ask how much of the value created in these networks a region manages to capture (Coe et al., 2004). In Zhenjiang that would show up in purchases from local suppliers, in local jobs and wages, and in taxes, rather than in sales booked in the city. The sales records also cannot tell whether the firms ranked fourth to fiftieth grew on orders from the largest firms or on wider demand and higher prices. The next question I would examine is how much of the largest firms' additional purchasing went to suppliers that produce in Zhenjiang, by type of input. It would need those firms' purchase records for both years, with the place where each supplier produces.
 
-A separate note, [Two firms behind the 2022 boom](docs/two-firms-note.md), completed in November 2026, reads the two largest firms' public filings beside the 2021 and 2022 sales data from the 2022 register, which I compiled during my research work in 2023. Their recorded sales stand for different kinds of expansion. The largest firm's growth rested on ingots made by a subsidiary in Inner Mongolia and on slicing partly done by other firms. The second, CECEP Solar Energy Technology (Zhenjiang), makes solar cells and modules, and its taxable sales rose by 94%. In volume, its reported module output rose by 40%, while the modules it sold, or delivered to its group's own power stations, rose by 78%. Modules bought from other makers made up almost all of the difference. These activities cannot be matched entry by entry with the taxable sales on the register, which remain the basis of the concentration results above.
+A separate note, [Two firms behind the 2022 boom](docs/two-firms-note.md), completed in November 2026, reads the two largest firms' public filings beside the 2021 and 2022 sales data from the 2022 register. Their recorded sales stand for different kinds of expansion. The largest firm's growth rested on ingots made by a subsidiary in Inner Mongolia and on slicing partly done by other firms. The second, CECEP Solar Energy Technology (Zhenjiang), makes solar cells and modules, and its taxable sales rose by 94%. In volume, its reported module output rose by 40%, while the modules it sold, or delivered to its group's own power stations, rose by 78%. Modules bought from other makers made up almost all of the difference. These activities cannot be matched entry by entry with the taxable sales on the register, which remain the basis of the concentration results above.
 
 ## Data
 
@@ -20,9 +20,9 @@ The workbook comes from the city's monitoring of its priority industry chains fo
 
 - Sales are nominal, so price and volume changes are mixed together. Silicon prices for solar manufacturing reached a ten-year high in 2022 (Zhang, 2022).
 - Sales are not value added. They include the cost of bought-in inputs, and a sale from one firm in the chain to another can be counted again in the buyer's sales.
-- Taxable sales recorded for a firm in Zhenjiang need not all come from production in the city. The largest firm's prospectus (Jiangsu Meike Solar Technology Inc., 2024) shows that in 2022 it was already making silicon ingots in Inner Mongolia and cutting them into wafers in Zhenjiang. By the end of 2023 it also made ingots in Yunnan and wafers in Sichuan.
+- Taxable sales recorded for a firm in Zhenjiang need not all come from production in the city. The largest firm's prospectus (Jiangsu Meike Solar Technology Inc., 2024) shows that in 2022 it was already making silicon ingots in Inner Mongolia and cutting them into wafers in Zhenjiang.
 - Both years cover the firms on the chain's 2022 register, an administrative list, so firms that left the chain before 2022 are not counted.
-- The results describe one year and do not identify causes.
+- The results cover one year, 2021 to 2022.
 
 ## Reproducing the results
 
@@ -35,7 +35,7 @@ Rscript R/zj_chain_curve.R
 
 A workbook stored elsewhere can be passed as an argument, as in `Rscript R/zj_chain_curve.R path/to/workbook.xlsx`. The script writes two tables and the figure to `output/`. Their columns and measures are described in [docs/outputs.md](docs/outputs.md).
 
-The figures in the two-firm note need no workbook. `Rscript R/two_firm_ratios.R` reads `evidence/public_figures.csv`, which lists each figure with its source, page and table, and the two tables in `output/`, checks the identities used in the note and writes `output/two_firm_derived.csv`.
+The figures in the two-firm note need no workbook. `Rscript --vanilla R/two_firm_ratios.R` reads `evidence/public_figures.csv`, which lists each figure with its source, page and table, and the two tables in `output/`, checks the identities used in the note and writes `output/two_firm_derived.csv`.
 
 ## Definitions
 
@@ -48,7 +48,7 @@ The figures in the two-firm note need no workbook. `Rscript R/two_firm_ratios.R`
 
 ## Python version
 
-`reference/make_reference.py` repeats the analysis in Python. It reads the same workbook, needs the openpyxl package and writes the two tables in `reference/`, which agree with the R tables in `output/` to six decimal places. `reference/two_firm_reference.py` does the same for the two-firm note and reports whether its results agree with `output/two_firm_derived.csv` to six decimal places.
+`reference/make_reference.py` repeats the analysis in Python. It reads the same workbook, needs the openpyxl package, writes the two tables in `reference/` and reports whether they agree with the R tables in `output/` to six decimal places. `reference/two_firm_reference.py` does the same for the two-firm note and reports whether its results agree with `output/two_firm_derived.csv` to six decimal places.
 
 ## References
 

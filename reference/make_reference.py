@@ -1,12 +1,14 @@
 """Python version of the analysis in R/zj_chain_curve.R.
 
-Reads the monitoring workbook and writes reference/reference_summary_python.csv and
-reference/reference_by_rank_python.csv. The workbook is confidential and is not in
+Reads the monitoring workbook, writes reference/reference_summary_python.csv and
+reference/reference_by_rank_python.csv, and reports whether they agree with the R
+tables in output/ to six decimal places. The workbook is confidential and is not in
 this repository.
 
 Usage: python3 reference/make_reference.py [path/to/workbook.xlsx]
 Without a path, the .xlsx file in data/ is used. Needs openpyxl.
 """
+import csv
 import sys
 from itertools import accumulate
 from pathlib import Path
@@ -23,7 +25,8 @@ wb = load_workbook(paths[0], read_only=True, data_only=True)
 # Sheet 2, one row per firm: column 2 is the name, 4 is 2022 taxable sales and
 # 5 is the same period of 2021, in 10,000 yuan.
 firms = [(r[1], r[3], r[4]) for r in wb.worksheets[1].iter_rows(min_row=2, max_col=5, values_only=True) if r[1]]
-assert len(firms) == 254
+if len(firms) != 254:
+    sys.exit(f"Expected 254 firms on sheet 2, found {len(firms)}.")
 
 
 def city_total(col):
@@ -107,12 +110,26 @@ summary = [
     ("city_growth_pct", growth_pct(city22, city21)),
 ]
 
+COLUMNS = ["base_share_pct", "share_2022_pct", "contribution_pp", "share_of_net_increase_pct", "rest_growth_pct"]
 out = ROOT / "reference"
 with open(out / "reference_summary_python.csv", "w", newline="\n", encoding="ascii") as f:
     f.write("measure,value\n")
     for name, value in summary:
         f.write(f"{name},{value:.6f}\n")
 with open(out / "reference_by_rank_python.csv", "w", newline="\n", encoding="ascii") as f:
-    f.write("top_k,base_share_pct,share_2022_pct,contribution_pp,share_of_net_increase_pct,rest_growth_pct\n")
+    f.write("top_k," + ",".join(COLUMNS) + "\n")
     for k, *values in by_rank:
         f.write(f"{k}," + ",".join(f"{v:.6f}" for v in values) + "\n")
+
+# Compare with the R tables in output/ at six decimal places.
+py_vals = dict(summary)
+py_vals.update((f"top_{k} {c}", x) for k, *values in by_rank for c, x in zip(COLUMNS, values))
+r_vals = {}
+with open(ROOT / "output" / "results_summary.csv", newline="", encoding="utf-8") as f:
+    r_vals.update((r["measure"], float(r["value"])) for r in csv.DictReader(f))
+with open(ROOT / "output" / "results_by_rank.csv", newline="", encoding="utf-8") as f:
+    r_vals.update((f"top_{r['top_k']} {c}", float(r[c])) for r in csv.DictReader(f) for c in COLUMNS)
+differ = [n for n, x in py_vals.items() if n not in r_vals or f"{x:.6f}" != f"{r_vals[n]:.6f}"]
+print(f"{len(py_vals)} values; {len(differ)} differ from the R tables in output/ at six decimals")
+if differ:
+    sys.exit("Differ: " + ", ".join(differ))

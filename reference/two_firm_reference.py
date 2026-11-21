@@ -3,8 +3,8 @@
 Reads evidence/public_figures.csv, evidence/sources.csv and the two tables in
 output/, makes the same checks as the R script and writes
 reference/two_firm_derived_python.csv. If output/two_firm_derived.csv exists,
-it also reports whether the two agree to six decimal places. No confidential
-data are read.
+it also reports whether the two agree to six decimal places. It does not need
+the workbook.
 
 Usage: python3 reference/two_firm_reference.py
 """
@@ -13,8 +13,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-UNITS = {"10k_yuan", "yuan", "pct", "pct_points", "10k_kwh", "10k_tonnes", "gw", "mw",
-         "yuan_per_w", "t_per_a", "10k_pieces", "mg_per_l"}
+UNITS = {"10k_yuan", "yuan", "pct", "10k_kwh", "10k_tonnes", "gw", "mw",
+         "t_per_a", "10k_pieces", "mg_per_l"}
 
 
 def read(path):
@@ -91,10 +91,7 @@ for y in ("2021", "2022"):
     add(f"cecep_company_revenue_{y}_100m", co("revenue", y) / 1e8)
     add(f"cecep_region_revenue_{y}_100m", v(cz, reg, "revenue", y) / 1e8)
     add(f"cecep_segment_revenue_{y}_100m", v(cz, seg, "revenue", y) / 1e8)
-    add(f"cecep_company_minus_region_{y}_100m", (co("revenue", y) - v(cz, reg, "revenue", y)) / 1e8)
 add("cecep_company_revenue_growth_pct", growth(co("revenue", "2022"), co("revenue", "2021")))
-add("cecep_region_revenue_growth_pct", growth(v(cz, reg, "revenue", "2022"), v(cz, reg, "revenue", "2021")))
-add("cecep_segment_revenue_growth_pct", growth(v(cz, seg, "revenue", "2022"), v(cz, seg, "revenue", "2021")))
 
 # CECEP Zhenjiang module volumes and the identities described in the note.
 for y in ("2020", "2021", "2022"):
@@ -106,9 +103,6 @@ for y in ("2020", "2021"):
 same(v(cz, seg, "production_reported", "2022"),
      md("output_plus_purchased", "2022") - md("internal_use", "2022"), "reported production 2022")
 same(v(cz, seg, "sales_reported", "2022"), md("external_sales", "2022"), "reported sales 2022")
-same(v(cz, "rating_report", "module_annual_output", "2021"), md("output", "2021"), "rating report output 2021")
-same(v(cz, "rating_report", "module_annual_output", "2022"),
-     md("output", "2022") - md("internal_use", "2022"), "rating report output 2022")
 add("cecep_module_output_growth_pct_2022", growth(md("output", "2022"), md("output", "2021")))
 add("cecep_modules_purchased_ratio_2022_to_2021", md("purchased", "2022") / md("purchased", "2021"))
 add("cecep_external_sales_growth_pct_2022", growth(md("external_sales", "2022"), md("external_sales", "2021")))
@@ -116,11 +110,8 @@ add("cecep_internal_plus_external_growth_pct_2022",
     growth(md("internal_plus_external", "2022"), md("internal_plus_external", "2021")))
 add("cecep_reported_production_growth_pct_2022",
     growth(v(cz, seg, "production_reported", "2022"), v(cz, seg, "production_reported", "2021")))
-add("cecep_reported_sales_growth_pct_2022",
-    growth(v(cz, seg, "sales_reported", "2022"), v(cz, seg, "sales_reported", "2021")))
 for y in ("2021", "2022"):
     add(f"cecep_purchased_share_of_supply_pct_{y}", 100 * md("purchased", y) / md("output_plus_purchased", y))
-    add(f"cecep_internal_share_of_disposals_pct_{y}", 100 * md("internal_use", y) / md("internal_plus_external", y))
 supply_change = md("output_plus_purchased", "2022") - md("output_plus_purchased", "2021")
 output_change = md("output", "2022") - md("output", "2021")
 bought_change = md("purchased", "2022") - md("purchased", "2021")
@@ -128,14 +119,6 @@ same(output_change + bought_change, supply_change, "split of the 2022 change in 
 add("cecep_supply_change_2022_mw", supply_change)
 add("cecep_output_change_2022_mw", output_change)
 add("cecep_purchased_change_2022_mw", bought_change)
-add("cecep_output_share_of_supply_change_pct_2022", 100 * output_change / supply_change)
-add("cecep_purchased_share_of_supply_change_pct_2022", 100 * bought_change / supply_change)
-for y in ("2021", "2022"):
-    prev = str(int(y) - 1)
-    add(f"cecep_reported_production_minus_sales_{y}_mw",
-        v(cz, seg, "production_reported", y) - v(cz, seg, "sales_reported", y))
-    add(f"cecep_reported_inventory_change_{y}_mw",
-        v(cz, seg, "inventory_reported", y) - v(cz, seg, "inventory_reported", prev))
 
 # CECEP Zhenjiang purchases from two module suppliers.
 ta = lambda indicator, y: v(cz, "supplier_taineng", indicator, y)
@@ -146,8 +129,6 @@ same(v(cz, "parent_top5_suppliers", "supplier_three_purchases", "2022") / 1e4,
      ru("purchases_incl_vat", "2022"), "annual report supplier three matches Ruijing")
 add("cecep_taineng_purchases_2022_100m", ta("purchases_incl_vat", "2022") / 1e4)
 add("cecep_ruijing_purchases_2022_100m", ru("purchases_incl_vat", "2022") / 1e4)
-add("cecep_two_suppliers_purchases_2023q1q3_100m",
-    (ta("purchases_incl_vat", "2023Q1-Q3") + ru("purchases_incl_vat", "2023Q1-Q3")) / 1e4)
 
 # Meike: output, purchases, energy and returns.
 for y in ("2021", "2022"):
@@ -157,49 +138,27 @@ for y in ("2021", "2022"):
          f"Meike wafer output in pieces {y}")
 pieces_share = 100 * mk("wafer_outsourced_processing_pieces", "2022") / mk("wafer_output_total_pieces", "2022")
 same(pieces_share, mk("wafer_outsourced_share_by_pieces", "2022"), "Meike outsourced share by pieces 2022")
-add("meike_wafer_outsourced_share_of_output_pct_2022",
-    100 * mk("wafer_outsourced_processing", "2022") / mk("wafer_output_total", "2022"))
 add("meike_wafer_outsourced_share_by_pieces_pct_2022", pieces_share)
-add("meike_wafer_processing_purchases_2022_100m", mk("wafer_processing_purchases", "2022") / 1e4)
-add("meike_polysilicon_share_of_purchases_pct_2022",
-    100 * mk("polysilicon_purchases", "2022") / mk("operating_purchases", "2022"))
-add("meike_polysilicon_purchases_2022_100m", mk("polysilicon_purchases", "2022") / 1e4)
-add("meike_polysilicon_purchases_over_revenue_pct_2022",
-    100 * mk("polysilicon_purchases", "2022") / mk("revenue", "2022"))
-for y in ("2021", "2022", "2023"):
+for y in ("2021", "2022"):
     add(f"meike_electricity_{y}_gwh", mk("electricity", y) * 1e4 / 1e6)
-    add(f"meike_water_{y}_million_tonnes", mk("water", y) / 100)
     add(f"meike_group_net_profit_{y}_100m", mk("net_profit", y) / 1e4)
-add("meike_group_revenue_2023_100m", mk("revenue", "2023") / 1e4)
 add("meike_net_profit_ratio_2022_to_2021", mk("net_profit", "2022") / mk("net_profit", "2021"))
-add("meike_baotou_net_profit_2023_100m", v("meike", "baotou", "net_profit", "2023") / 1e4)
 add("meike_baotou_net_profit_over_group_net_profit_pct_2023",
     100 * v("meike", "baotou", "net_profit", "2023") / mk("net_profit", "2023"))
 
-# CECEP Zhenjiang: returns and balance sheet, in 100 million yuan unless stated.
-for y in ("2021", "2022", "2023"):
-    add(f"cecep_company_net_profit_{y}_100m", co("net_profit", y) / 1e8)
-    add(f"cecep_company_total_assets_{y}_100m", co("total_assets", y) / 1e8)
-add("cecep_company_revenue_2023_100m", co("revenue", "2023") / 1e8)
+# CECEP Zhenjiang: net profit, in 100 million yuan.
 for y in ("2021", "2022"):
+    add(f"cecep_company_net_profit_{y}_100m", co("net_profit", y) / 1e8)
     add(f"cecep_manufacturing_net_profit_after_elimination_{y}_100m",
         v(cz, "manufacturing_after_elimination", "net_profit", y) / 1e4)
-add("cecep_segment_gross_margin_2021_pct", v(cz, seg, "gross_margin", "2022") - v(cz, seg, "gross_margin_change", "2022"))
-add("cecep_module_price_growth_pct_2022", growth(md("price_excl_vat", "2022"), md("price_excl_vat", "2021")))
-add("cecep_module_cost_growth_pct_2022", growth(md("cost_excl_vat", "2022"), md("cost_excl_vat", "2021")))
-add("cecep_operating_cash_flow_2021_100m", co("operating_cash_flow", "2021") / 1e8)
-add("cecep_liabilities_over_assets_pct_2021", 100 * co("total_liabilities", "2021") / co("total_assets", "2021"))
-add("cecep_liabilities_over_assets_pct_2022",
-    100 * (co("total_assets", "2022") - co("net_assets", "2022")) / co("total_assets", "2022"))
 
-# CECEP Zhenjiang: disclosed discharge totals against approved totals.
+# CECEP Zhenjiang: discharge tables in the four reports.
 pol = ["ammonia_nitrogen", "total_phosphorus", "total_nitrogen", "cod", "fluoride", "suspended_solids"]
 reports = ["2022H1_report", "2022_annual_report", "2023H1_report", "2023_annual_report"]
 disclosed = lambda p, r: co(f"discharge_{p}", r)
 approved = lambda p, r: co(f"approved_{p}", r)
 add("cecep_pollutants_with_same_approved_total_in_four_reports",
     sum(len({approved(p, r) for r in reports}) == 1 for p in pol))
-add("cecep_disclosed_totals_below_approved", sum(disclosed(p, r) < approved(p, r) for p in pol for r in reports))
 add("cecep_pollutants_with_2022_half_year_above_2022_annual",
     sum(disclosed(p, "2022H1_report") > disclosed(p, "2022_annual_report") for p in pol))
 add("cecep_pollutants_with_2023_half_year_equal_to_2023_annual",
@@ -222,3 +181,5 @@ if r_path.exists():
     print(f"{len(out)} measures; {len(differ)} differ from output/two_firm_derived.csv at six decimals")
     if differ:
         sys.exit("Differ: " + ", ".join(differ))
+else:
+    print("output/two_firm_derived.csv not found, so no comparison was made")

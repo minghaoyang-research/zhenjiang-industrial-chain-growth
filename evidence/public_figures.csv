@@ -3,20 +3,11 @@ meike,group,revenue,2021,361248.36,10k_yuan,P,1-1-27,发行人报告期内主要
 meike,group,net_profit,2021,20050.95,10k_yuan,P,1-1-27,发行人报告期内主要财务数据及财务指标
 meike,group,revenue,2022,1290034.21,10k_yuan,P,1-1-27,发行人报告期内主要财务数据及财务指标
 meike,group,net_profit,2022,98776.85,10k_yuan,P,1-1-27,发行人报告期内主要财务数据及财务指标
-meike,group,revenue,2023,1255192.11,10k_yuan,P,1-1-27,发行人报告期内主要财务数据及财务指标
 meike,group,net_profit,2023,106500.42,10k_yuan,P,1-1-27,发行人报告期内主要财务数据及财务指标
-meike,group,main_business_gross_margin,2021,13.50,pct,P,1-1-32,毛利率波动风险
 meike,group,main_business_gross_margin,2022,12.13,pct,P,1-1-32,毛利率波动风险
-meike,group,main_business_gross_margin,2023,16.71,pct,P,1-1-32,毛利率波动风险
 meike,group,electricity,2021,41175.92,10k_kwh,P,1-1-164,主要能源采购及价格变动情况
-meike,group,water,2021,112.85,10k_tonnes,P,1-1-164,主要能源采购及价格变动情况
 meike,group,electricity,2022,105108.74,10k_kwh,P,1-1-164,主要能源采购及价格变动情况
-meike,group,water,2022,188.40,10k_tonnes,P,1-1-164,主要能源采购及价格变动情况
-meike,group,electricity,2023,224068.90,10k_kwh,P,1-1-164,主要能源采购及价格变动情况
-meike,group,water,2023,422.41,10k_tonnes,P,1-1-164,主要能源采购及价格变动情况
-meike,group,ingot_output_own,2021,6.30,gw,P,1-1-157,单晶硅棒的产能、产量及销量情况
 meike,group,ingot_output_own,2022,16.53,gw,P,1-1-157,单晶硅棒的产能、产量及销量情况
-meike,group,ingot_own_use,2022,16.51,gw,P,1-1-157,单晶硅棒的产能、产量及销量情况
 meike,group,wafer_output_own,2021,4.10,gw,P,1-1-158,单晶硅片的产能、产量及销量情况
 meike,group,wafer_outsourced_processing,2021,1.84,gw,P,1-1-158,单晶硅片的产能、产量及销量情况
 meike,group,wafer_output_total,2021,5.95,gw,P,1-1-158,单晶硅片的产能、产量及销量情况
@@ -30,30 +21,11 @@ meike,group,wafer_output_total_pieces,2021,84947.31,10k_pieces,P,1-1-158,单晶�
 meike,group,wafer_output_own_pieces,2022,149802.25,10k_pieces,P,1-1-158,单晶硅片的产能、产量及销量情况
 meike,group,wafer_outsourced_processing_pieces,2022,44158.05,10k_pieces,P,1-1-158,单晶硅片的产能、产量及销量情况
 meike,group,wafer_output_total_pieces,2022,193960.30,10k_pieces,P,1-1-158,单晶硅片的产能、产量及销量情况
-meike,group,operating_purchases,2022,1053077.03,10k_yuan,P,1-1-162,主要经营性采购情况
-meike,group,polysilicon_purchases,2022,879451.06,10k_yuan,P,1-1-162,主要经营性采购情况
-meike,group,wafer_processing_purchases,2022,14060.76,10k_yuan,P,1-1-165,外协加工情况
-meike,group,top5_supplier_share,2022,74.51,pct,P,1-1-166,公司向前五大供应商采购情况
-meike,group,top5_customer_share,2022,70.41,pct,P,1-1-161,公司向前五大客户销售情况
 meike,baotou,net_profit,2023,63406.44,10k_yuan,P,1-1-62,简要财务数据
-meike,sichuan,net_profit,2023,-10268.09,10k_yuan,P,1-1-64,简要财务数据
-meike,yunnan,net_profit,2023,-8314.53,10k_yuan,P,1-1-65,简要财务数据
 cecep_zj,company,revenue,2021,2878158950.74,yuan,AR21,206,重要非全资子公司的主要财务信息
 cecep_zj,company,revenue,2022,5800845693.00,yuan,AR22,26,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,revenue,2023,6038886252.98,yuan,AR23,27,主要子公司及对公司净利润影响达10%以上的参股公司情况
 cecep_zj,company,net_profit,2021,-115737770.09,yuan,AR21,206,重要非全资子公司的主要财务信息
 cecep_zj,company,net_profit,2022,-36347911.38,yuan,AR22,26,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,net_profit,2023,34965598.19,yuan,AR23,27 to 28,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,operating_cash_flow,2021,228345455.60,yuan,AR21,206,重要非全资子公司的主要财务信息
-cecep_zj,company,total_assets,2021,2602365657.16,yuan,AR21,206,重要非全资子公司的主要财务信息
-cecep_zj,company,total_assets,2022,3978874572.40,yuan,AR22,26,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,total_assets,2023,3718465219.93,yuan,AR23,27,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,total_liabilities,2021,2365610941.06,yuan,AR21,206,重要非全资子公司的主要财务信息
-cecep_zj,company,net_assets,2022,355644057.47,yuan,AR22,26,主要子公司及对公司净利润影响达10%以上的参股公司情况
-cecep_zj,company,minority_share,2021-12,5.56,pct,AR21,205,重要的非全资子公司
-cecep_zj,company,parent_share,2023-09,100,pct,INQ,1-71; 1-84,发行人及其子公司的营业范围（截至2023年9月30日）
-cecep_zj,company,cell_capacity_end,2022,1.5,gw,AR22,12,主要生产经营信息（公司太阳能产品产能）
-cecep_zj,company,module_capacity_end,2022,3.5,gw,AR22,12,主要生产经营信息（公司太阳能产品产能）
 cecep_zj,company,new_module_line_capacity,2022-08,1.5,gw,AR22,77 to 78,其他重大事项的说明
 cecep_zj,manufacturing_after_elimination,net_profit,2021,-16690.25,10k_yuan,INQ,1-20,太阳能产品制造业务与同行业可比公司净利润情况
 cecep_zj,manufacturing_after_elimination,net_profit,2022,-13116.93,10k_yuan,INQ,1-20,太阳能产品制造业务与同行业可比公司净利润情况
@@ -61,25 +33,12 @@ cecep_zj,parent_region_zhenjiang,revenue,2021,2608163309.93,yuan,AR22,15,营业�
 cecep_zj,parent_segment_manufacturing,revenue,2021,2548600630.17,yuan,AR22,15,营业收入构成
 cecep_zj,parent_region_zhenjiang,revenue,2022,4917081433.65,yuan,AR22,15,营业收入构成
 cecep_zj,parent_segment_manufacturing,revenue,2022,4856886711.49,yuan,AR22,15,营业收入构成
-cecep_zj,parent_segment_manufacturing,gross_margin,2022,4.42,pct,AR22,16,占公司营业收入或营业利润10%以上的行业、产品、地区、销售模式的情况
-cecep_zj,parent_segment_manufacturing,gross_margin_change,2022,2.66,pct_points,AR22,16,占公司营业收入或营业利润10%以上的行业、产品、地区、销售模式的情况
-cecep_zj,parent_segment_manufacturing,gross_margin,2023,7.10,pct,AR23,16,占公司营业收入或营业利润10%以上的行业、产品、地区、销售模式的情况
-cecep_zj,parent_segment_manufacturing,raw_material_cost_share,2022,90.87,pct,AR22,16,营业成本构成
 cecep_zj,parent_segment_manufacturing,production_reported,2020,1051.16,mw,AR21,16,公司实物销售收入是否大于劳务收入
 cecep_zj,parent_segment_manufacturing,sales_reported,2020,1032.27,mw,AR21,16,公司实物销售收入是否大于劳务收入
-cecep_zj,parent_segment_manufacturing,inventory_reported,2020,40.6,mw,AR21,16,公司实物销售收入是否大于劳务收入
 cecep_zj,parent_segment_manufacturing,production_reported,2021,1786.12,mw,AR22,16,公司实物销售收入是否大于劳务收入
 cecep_zj,parent_segment_manufacturing,sales_reported,2021,1782.45,mw,AR22,16,公司实物销售收入是否大于劳务收入
-cecep_zj,parent_segment_manufacturing,inventory_reported,2021,47.16,mw,AR22,16,公司实物销售收入是否大于劳务收入
 cecep_zj,parent_segment_manufacturing,production_reported,2022,2684.53,mw,AR22,16,公司实物销售收入是否大于劳务收入
 cecep_zj,parent_segment_manufacturing,sales_reported,2022,2682.19,mw,AR22,16,公司实物销售收入是否大于劳务收入
-cecep_zj,parent_segment_manufacturing,inventory_reported,2022,38.69,mw,AR22,16,公司实物销售收入是否大于劳务收入
-cecep_zj,module_business,capacity_end,2020,2000,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,capacity_end,2021,2000,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,capacity_end,2022,3500,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,capacity_average,2020,1300,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,capacity_average,2021,2000,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,capacity_average,2022,2625,mw,INQ,1-43,发行人组件业务指标
 cecep_zj,module_business,output,2020,882.56,mw,INQ,1-43,发行人组件业务指标
 cecep_zj,module_business,output,2021,1668.97,mw,INQ,1-43,发行人组件业务指标
 cecep_zj,module_business,output,2022,2343.31,mw,INQ,1-43,发行人组件业务指标
@@ -98,27 +57,12 @@ cecep_zj,module_business,external_sales,2022,2682.19,mw,INQ,1-43,发行人组件
 cecep_zj,module_business,internal_plus_external,2020,1032.27,mw,INQ,1-43,发行人组件业务指标
 cecep_zj,module_business,internal_plus_external,2021,1782.45,mw,INQ,1-43,发行人组件业务指标
 cecep_zj,module_business,internal_plus_external,2022,3167.92,mw,INQ,1-43,发行人组件业务指标
-cecep_zj,module_business,price_excl_vat,2021,1.43,yuan_per_w,INQ,1-18,发行人与同行业可比公司组件平均单价
-cecep_zj,module_business,price_excl_vat,2022,1.68,yuan_per_w,INQ,1-18,发行人与同行业可比公司组件平均单价
-cecep_zj,module_business,cost_excl_vat,2021,1.40,yuan_per_w,INQ,1-19,发行人与同行业可比公司组件平均成本
-cecep_zj,module_business,cost_excl_vat,2022,1.60,yuan_per_w,INQ,1-19,发行人与同行业可比公司组件平均成本
-cecep_zj,module_business,overseas_share_of_manufacturing_revenue,2022,5.96,pct,INQ,1-18,发行人及同行业可比公司境外销售占比
 cecep_zj,supplier_taineng,purchases_incl_vat,2022,57226.15,10k_yuan,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_taineng,share_of_parent_purchases,2022,7.24,pct,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_taineng,purchases_incl_vat,2023Q1-Q3,10941.75,10k_yuan,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_taineng,module_capacity_assessed,2022,1,gw,INQ,1-44,浙江泰能、江苏瑞晶能够满足发行人外购需求，具备一定优势
 cecep_zj,supplier_ruijing,purchases_incl_vat,2022,40887.52,10k_yuan,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_ruijing,share_of_parent_purchases,2022,5.17,pct,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_ruijing,purchases_incl_vat,2023Q1-Q3,73.01,10k_yuan,INQ,1-42,浙江泰能光电有限公司及江苏瑞晶太阳能科技有限公司与公司发生采购交易的具体情况
-cecep_zj,supplier_ruijing,module_capacity_assessed,2022,1,gw,INQ,1-44,浙江泰能、江苏瑞晶能够满足发行人外购需求，具备一定优势
 cecep_zj,parent_top5_suppliers,supplier_one_purchases,2022,572261458.27,yuan,AR22,18,公司前5名供应商资料
 cecep_zj,parent_top5_suppliers,supplier_three_purchases,2022,408875164.87,yuan,AR22,18,公司前5名供应商资料
-ruijing,company_profile,base_capacity_jianhu,2022-08,2.5,gw,OFW,,公司现有基地（参评企业介绍）
-ruijing,company_profile,base_capacity_other,2022-08,1,gw,OFW,,公司现有基地（参评企业介绍）
 industry,solar_pv_manufacturing,electricity_share_of_energy,2022-08,80,pct,IEA,8,Executive summary
 chain,zhenjiang_new_power_equipment,taxable_sales_growth,2022,33,pct,ZJRB,,正文
-cecep_zj,rating_report,module_annual_output,2021,1668.97,mw,RR,6,图表6 公司电池和组件业务指标情况
-cecep_zj,rating_report,module_annual_output,2022,1857.58,mw,RR,6,图表6 公司电池和组件业务指标情况
 cecep_zj,company,co2_purchased_electricity,2022,5.745,10k_tonnes,AR22,47,在报告期内为减少其碳排放所采取的措施及效果
 cecep_zj,company,concentration_ammonia_nitrogen,2023H1_report,6.86,mg_per_l,H123,24,行业排放标准及生产经营活动中涉及的污染物排放的具体情况
 cecep_zj,company,concentration_total_phosphorus,2023H1_report,0.08,mg_per_l,H123,24,行业排放标准及生产经营活动中涉及的污染物排放的具体情况

@@ -33,8 +33,9 @@ summ <- read_excel(path, sheet = 1, col_names = FALSE, .name_repair = "minimal")
 total <- function(label, col) as.numeric(summ[[col]][grepl(label, summ[[2]], fixed = TRUE)][1]) / 1e4
 city22 <- total("全市规上工业企业", 4)
 city21 <- total("全市规上工业企业", 5)
-# the 254 firms add up to the chain's row in the summary table
-stopifnot(abs(total("新型电力", 4) - t22) < 1e-4, abs(total("新型电力", 5) - t21) < 1e-4)
+# the city's row is in the summary table, and the 254 firms add up to the chain's row
+stopifnot(!is.na(city21), !is.na(city22),
+          abs(total("新型电力", 4) - t22) < 1e-4, abs(total("新型电力", 5) - t21) < 1e-4)
 
 # ---- Growth of individual firms --------------------------------------------------
 chg <- firms$s22 - firms$s21
