@@ -39,3 +39,9 @@
 
 - The top three share is given both ways. The three largest firms of 2021 held 34.36% of chain sales in 2022, and the three largest of 2022, ranked on 2022 sales, held 34.78%.
 - Sheet 2 is read by column position, because two of its columns are headed 同期. The tax columns are not used.
+
+## Two-firm note
+
+`output/two_firm_derived.csv` is written by `R/two_firm_ratios.R` and holds the derived and converted figures behind [the two-firm note](two-firms-note.md), including some that the note does not quote, one per row, as `measure, value`. Names containing `_100m` are in 100 million yuan, `_pct` in per cent, `_mw` in megawatts, `_gwh` in gigawatt hours, `_million_tonnes` in million tonnes and `_tonnes` in tonnes. Names containing `ratio` are ratios, and the five measures on pollutants are counts. The register sales of the two largest firms are recovered from `results_by_rank.csv` as the share of chain sales times the chain total in `results_summary.csv`, the second firm being the top two minus the top one.
+
+`evidence/public_figures.csv` lists every figure taken from a published source with its firm, scope, indicator, period, unit, source, printed page and the title of the table it comes from. Units are `10k_yuan` (10,000 yuan), `yuan`, `pct`, `pct_points`, `10k_kwh`, `10k_tonnes`, `10k_pieces` (10,000 wafers), `gw`, `mw`, `yuan_per_w`, `mg_per_l` and `t_per_a` (tonnes per year as printed). `evidence/sources.csv` gives the issuer, title, date and address of each source key. The script stops if a figure is missing, listed twice or not a number, if a column, source key or unit is unknown, or if one of the reconciliations described in the note does not hold, including the 2022 outsourced share of Meike's wafers that the prospectus reports by number of wafers. `reference/two_firm_reference.py` makes the same checks in Python and writes `reference/two_firm_derived_python.csv`.

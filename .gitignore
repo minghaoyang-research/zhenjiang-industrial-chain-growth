@@ -3,15 +3,21 @@ data/
 *.xlsx
 *.xls
 
-# Only these files in output/ and reference/ are tracked
+# Only these files in output/, reference/ and evidence/ are tracked
 output/*
 !output/results_by_rank.csv
 !output/results_summary.csv
 !output/fig_concentration_curve.png
+!output/two_firm_derived.csv
 reference/*
 !reference/make_reference.py
 !reference/reference_by_rank_python.csv
 !reference/reference_summary_python.csv
+!reference/two_firm_reference.py
+!reference/two_firm_derived_python.csv
+evidence/*
+!evidence/public_figures.csv
+!evidence/sources.csv
 
 # R and renv
 .Rhistory

@@ -4,9 +4,11 @@ In 2022 the taxable sales of the 254 firms on the register of Zhenjiang's new-po
 
 I ranked the firms by their 2021 sales rather than their 2022 sales, so that a firm's rank does not depend on how much it grew. The three largest firms held 20.1% of chain sales in 2021 and accounted for 77.5% of the net increase in 2022, the two largest alone for 75.5%. The largest, a maker of silicon wafers for solar cells (Jiangsu Meike Solar Technology Inc., 2024), accounted for 58.8% by itself, while the third grew more slowly than the chain as a whole. The next 47 firms, ranked fourth to fiftieth, also grew as a group. Their combined sales rose by 15.2% and the median firm grew by 9.0%, although 21 of them recorded a decline and three accounted for more than half of the group's increase. The remaining 204 firms were flat as a group, at -0.25%, and their median firm shrank by 3.0%. Taken together, the 251 firms outside the three largest grew by 9.3%, compared with 33.0% for the whole chain.
 
+![Cumulative share of the 2022 net increase against cumulative share of 2021 sales, firms ranked from largest](output/fig_concentration_curve.png)
+
 Concentrated sales growth does not by itself mean that Zhenjiang gained little. Studies of global production networks ask how much of the value created in these networks a region manages to capture (Coe et al., 2004). In Zhenjiang that would show up in purchases from local suppliers, in local jobs and wages, and in taxes, rather than in sales booked in the city. The sales records also cannot tell whether the firms ranked fourth to fiftieth grew on orders from the largest firms or on wider demand and higher prices. The next question I would examine is how much of the largest firms' additional purchasing went to suppliers that produce in Zhenjiang, by type of input. It would need those firms' purchase records for both years, with the place where each supplier produces.
 
-![Cumulative share of the 2022 net increase against cumulative share of 2021 sales, firms ranked from largest](output/fig_concentration_curve.png)
+A separate note, [Two firms behind the 2022 boom](docs/two-firms-note.md), completed in November 2026, reads the two largest firms' public filings beside the 2021 and 2022 sales data from the 2022 register, which I compiled during my research work in 2023. Their recorded sales stand for different kinds of expansion. The largest firm's growth rested on ingots made by a subsidiary in Inner Mongolia and on slicing partly done by other firms. The second, CECEP Solar Energy Technology (Zhenjiang), makes solar cells and modules, and its taxable sales rose by 94%. In volume, its reported module output rose by 40%, while the modules it sold, or delivered to its group's own power stations, rose by 78%. Modules bought from other makers made up almost all of the difference. These activities cannot be matched entry by entry with the taxable sales on the register, which remain the basis of the concentration results above.
 
 ## Data
 
@@ -33,6 +35,8 @@ Rscript R/zj_chain_curve.R
 
 A workbook stored elsewhere can be passed as an argument, as in `Rscript R/zj_chain_curve.R path/to/workbook.xlsx`. The script writes two tables and the figure to `output/`. Their columns and measures are described in [docs/outputs.md](docs/outputs.md).
 
+The figures in the two-firm note need no workbook. `Rscript R/two_firm_ratios.R` reads `evidence/public_figures.csv`, which lists each figure with its source, page and table, and the two tables in `output/`, checks the identities used in the note and writes `output/two_firm_derived.csv`.
+
 ## Definitions
 
 - Firms are ranked by their 2021 sales, largest first. The data contain no ties.
@@ -44,13 +48,13 @@ A workbook stored elsewhere can be passed as an argument, as in `Rscript R/zj_ch
 
 ## Python version
 
-`reference/make_reference.py` repeats the analysis in Python. It reads the same workbook, needs the openpyxl package and writes the two tables in `reference/`, which agree with the R tables in `output/` to six decimal places.
+`reference/make_reference.py` repeats the analysis in Python. It reads the same workbook, needs the openpyxl package and writes the two tables in `reference/`, which agree with the R tables in `output/` to six decimal places. `reference/two_firm_reference.py` does the same for the two-firm note and reports whether its results agree with `output/two_firm_derived.csv` to six decimal places.
 
 ## References
 
 - Coe, N.M., Hess, M., Yeung, H.W.-C., Dicken, P. and Henderson, J. (2004) ‘“Globalizing” regional development: a global production networks perspective’, *Transactions of the Institute of British Geographers*, 29(4), pp. 468–484. Available at: https://doi.org/10.1111/j.0020-2754.2004.00142.x.
-- Jiangsu Meike Solar Technology Inc. (2024) *首次公开发行股票并在创业板上市招股说明书（注册稿）* [Prospectus for initial public offering and listing on the ChiNext board (registration draft)]. Available at: https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202403/RAS_202403_301530905B104C509943CFB8D8928C077861E7.pdf (Accessed: 17 November 2026).
-- Zhang, W. (2022) ‘光伏产业链价格迎来拐点 [Photovoltaic industry chain prices reach a turning point]’, *中国电子报* [China Electronics News], 30 December, p. 8. Available at: https://epaper.cena.com.cn/oldpaper/content/2022-12/30/content_763546.htm (Accessed: 17 November 2026).
-- Zhu, J. and Yang, C. (2023) ‘镇江“双碳八大行动”调优能源结构 [Zhenjiang’s eight “dual carbon” actions optimise its energy structure]’, *镇江日报* [Zhenjiang Daily], 11 January. Available at: https://jsnews.jschina.com.cn/zj/a/202301/t20230111_3143509.shtml (Accessed: 17 November 2026).
+- Jiangsu Meike Solar Technology Inc. (2024) *首次公开发行股票并在创业板上市招股说明书（注册稿）* [Prospectus for initial public offering and listing on the ChiNext board (registration draft)]. Available at: https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202403/RAS_202403_301530905B104C509943CFB8D8928C077861E7.pdf (Accessed: 1 November 2026).
+- Zhang, W. (2022) ‘光伏产业链价格迎来拐点 [Photovoltaic industry chain prices reach a turning point]’, *中国电子报* [China Electronics News], 30 December, p. 8. Available at: https://epaper.cena.com.cn/oldpaper/content/2022-12/30/content_763546.htm (Accessed: 1 November 2026).
+- Zhu, J. and Yang, C. (2023) ‘镇江“双碳八大行动”调优能源结构 [Zhenjiang’s eight “dual carbon” actions optimise its energy structure]’, *镇江日报* [Zhenjiang Daily], 11 January. Available at: https://jsnews.jschina.com.cn/zj/a/202301/t20230111_3143509.shtml (Accessed: 1 November 2026).
 
 Minghao Yang, November 2026
